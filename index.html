@@ -56,22 +56,19 @@
         font-size: 25px;
       }
       button:hover {
-        background-color: thistle;
+        background-color: cadetblue;
       }
-      .eq:hover {
-        background-color: yellow;
-      }
+     
       .bs {
         height: 30px;
       }
-     
     </style>
   </head>
   <body>
     <div id="cal">
       <div id="dis"></div>
       <div id="but">
-        <button id="a">7</button>
+        <button id="a" onkeypress="col()">7</button>
         <button id="b">8</button>
         <button id="c">9</button>
         <button id="n">
@@ -135,16 +132,24 @@
       let n = document.getElementById("n");
       let o = document.getElementById("o");
       let z = document.getElementById("z");
-      let ze=document.getElementById("zero")
+      let ze = document.getElementById("zero");
+      let mo = document.getElementById("mod");
 
       let dis = document.getElementById("dis");
 
       res = "";
-      ze.addEventListener("click",(e)=>{
-        e.preventDefault()
-        res+=0
-        dis.innerHTML=res
-      })
+      mo.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (res.length) {
+          res += "%";
+        }
+        dis.innerHTML = res;
+      });
+      ze.addEventListener("click", (e) => {
+        e.preventDefault();
+        res += 0;
+        dis.innerHTML = res;
+      });
       a.addEventListener("click", (e) => {
         e.preventDefault();
         res += "7";
@@ -234,6 +239,10 @@
         res = "";
         dis.innerHTML = res;
       });
+
+      function col(){
+        a.style.backgroundColor="red"
+      }
     </script>
   </body>
 </html>
