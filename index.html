@@ -51,7 +51,7 @@
         font-size: 20px;
       }
       .eq {
-        /* width: 46%; */
+        width: 47%;
         color: red;
         font-size: 25px;
       }
@@ -64,6 +64,7 @@
       .bs {
         height: 30px;
       }
+     
     </style>
   </head>
   <body>
@@ -108,9 +109,11 @@
         <button id="j">2</button>
         <button id="k">1</button>
         <button id="l">+</button>
-        <button class="eq" id="z">C</button>
+        <button id="zero">0</button>
         <button id="m">-</button>
         <button id="d">/</button>
+        <button id="mod">%</button>
+        <button class="eq" id="z">C</button>
         <button id="o" class="eq">=</button>
       </div>
     </div>
@@ -132,10 +135,16 @@
       let n = document.getElementById("n");
       let o = document.getElementById("o");
       let z = document.getElementById("z");
+      let ze=document.getElementById("zero")
 
       let dis = document.getElementById("dis");
 
       res = "";
+      ze.addEventListener("click",(e)=>{
+        e.preventDefault()
+        res+=0
+        dis.innerHTML=res
+      })
       a.addEventListener("click", (e) => {
         e.preventDefault();
         res += "7";
