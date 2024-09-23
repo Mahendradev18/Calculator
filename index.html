@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        height: 98vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #cal {
+        /* border: 1px solid; */
+        border-radius: 20px;
+        height: 420px;
+        width: 300px;
+        padding: 30px 5px;
+        background-color: cadetblue;
+      }
+      #dis {
+        border: 1px solid cadetblue;
+        border-radius: 20px;
+        height: 18%;
+        background-color: #ffff;
+        font-size: 40px;
+        font-weight: bold;
+        display: flex;
+        justify-content: end;
+        padding-right: 30px;
+        padding-top: 13px;
+      }
+      #but {
+        height: 80%;
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+      button {
+        width: 22%;
+        background-color: #ffff;
+        border: 1px solid cadetblue;
+        border-radius: 10px;
+        font-size: 20px;
+      }
+      .eq {
+        /* width: 46%; */
+        color: red;
+        font-size: 25px;
+      }
+      button:hover {
+        background-color: thistle;
+      }
+      .eq:hover {
+        background-color: yellow;
+      }
+      .bs {
+        height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cal">
+      <div id="dis"></div>
+      <div id="but">
+        <button id="a">7</button>
+        <button id="b">8</button>
+        <button id="c">9</button>
+        <button id="n">
+          <svg
+            class="bs"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M11.7071 15.2938C11.3166 14.9033 11.3166 14.2701 11.7071 13.8796L13.5839 12.0027L11.7079 10.1267C11.3174 9.73617 11.3174 9.103 11.7079 8.71248C12.0984 8.32195 12.7316 8.32195 13.1221 8.71248L14.9982 10.5885L16.8796 8.70702C17.2702 8.3165 17.9033 8.3165 18.2938 8.70702C18.6844 9.09755 18.6844 9.73071 18.2938 10.1212L16.4124 12.0027L18.293 13.8833C18.6835 14.2739 18.6835 14.907 18.293 15.2975C17.9025 15.6881 17.2693 15.6881 16.8788 15.2975L14.9982 13.4169L13.1213 15.2938C12.7308 15.6843 12.0976 15.6843 11.7071 15.2938Z"
+                fill="#0F0F0F"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M5.6131 5.14653C6.18186 4.42266 7.05148 4 7.97206 4H20C21.6568 4 23 5.34315 23 7V17C23 18.6569 21.6568 20 20 20H7.97206C7.05148 20 6.18186 19.5773 5.6131 18.8535L1.68453 13.8535C0.829805 12.7656 0.829807 11.2344 1.68453 10.1465L5.6131 5.14653ZM7.97206 6C7.6652 6 7.37533 6.14089 7.18574 6.38218L3.25717 11.3822C2.97226 11.7448 2.97226 12.2552 3.25717 12.6178L7.18574 17.6178C7.37533 17.8591 7.6652 18 7.97206 18H20C20.5523 18 21 17.5523 21 17V7C21 6.44772 20.5523 6 20 6H7.97206Z"
+                fill="#0F0F0F"
+              ></path>
+            </g>
+          </svg>
+        </button>
+        <button id="e">4</button>
+        <button id="f">5</button>
+        <button id="g">6</button>
+        <button id="h">*</button>
+        <button id="i">3</button>
+        <button id="j">2</button>
+        <button id="k">1</button>
+        <button id="l">+</button>
+        <button class="eq" id="z">C</button>
+        <button id="m">-</button>
+        <button id="d">/</button>
+        <button id="o" class="eq">=</button>
+      </div>
+    </div>
+
+    <script>
+      let a = document.getElementById("a");
+      let b = document.getElementById("b");
+      let c = document.getElementById("c");
+      let d = document.getElementById("d");
+      let e = document.getElementById("e");
+      let f = document.getElementById("f");
+      let g = document.getElementById("g");
+      let h = document.getElementById("h");
+      let i = document.getElementById("i");
+      let j = document.getElementById("j");
+      let k = document.getElementById("k");
+      let l = document.getElementById("l");
+      let m = document.getElementById("m");
+      let n = document.getElementById("n");
+      let o = document.getElementById("o");
+      let z = document.getElementById("z");
+
+      let dis = document.getElementById("dis");
+
+      res = "";
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        res += "7";
+        dis.innerHTML = res;
+      });
+      b.addEventListener("click", (e) => {
+        e.preventDefault();
+        res += "8";
+        dis.innerHTML = res;
+      });
+      c.addEventListener("click", (e) => {
+        e.preventDefault();
+        res += "9";
+        dis.innerHTML = res;
+      });
+      d.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (res.length) {
+          res += "/";
+        }
+        dis.innerHTML = res;
+      });
+      e.addEventListener("click", (e) => {
+        e.preventDefault();
+        res += "4";
+        dis.innerHTML = res;
+      });
+      f.addEventListener("click", (e) => {
+        e.preventDefault();
+        res += 5;
+        dis.innerHTML = res;
+      });
+      g.addEventListener("click", (e) => {
+        e.preventDefault();
+        res += 6;
+        dis.innerHTML = res;
+      });
+      h.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (res.length) {
+          res += "*";
+        }
+        dis.innerHTML = res;
+      });
+      i.addEventListener("click", (e) => {
+        e.preventDefault();
+        res += 3;
+        dis.innerHTML = res;
+      });
+      j.addEventListener("click", (e) => {
+        e.preventDefault();
+        res += 2;
+        dis.innerHTML = res;
+      });
+      k.addEventListener("click", (e) => {
+        e.preventDefault();
+        res += 1;
+        dis.innerHTML = res;
+      });
+      l.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (res.length) {
+          res += "+";
+        }
+        dis.innerHTML = res;
+      });
+      m.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (res.length) {
+          res += "-";
+        }
+        dis.innerHTML = res;
+      });
+      n.addEventListener("click", (e) => {
+        e.preventDefault();
+        res = res.slice(0, res.length - 1);
+        dis.innerHTML = res;
+      });
+      o.addEventListener("click", (e) => {
+        e.preventDefault();
+        let a = eval(res);
+        dis.innerHTML = a;
+        res = "";
+      });
+      z.addEventListener("click", (e) => {
+        e.preventDefault();
+        res = "";
+        dis.innerHTML = res;
+      });
+    </script>
+  </body>
+</html>
