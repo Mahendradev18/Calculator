@@ -51,14 +51,14 @@
         font-size: 20px;
       }
       .eq {
-        width: 47%;
+        width: 34%;
         color: red;
         font-size: 25px;
       }
       button:hover {
         background-color: cadetblue;
       }
-     
+
       .bs {
         height: 30px;
       }
@@ -110,6 +110,7 @@
         <button id="m">-</button>
         <button id="d">/</button>
         <button id="mod">%</button>
+        <button id="dot">.</button>
         <button class="eq" id="z">C</button>
         <button id="o" class="eq">=</button>
       </div>
@@ -132,12 +133,18 @@
       let n = document.getElementById("n");
       let o = document.getElementById("o");
       let z = document.getElementById("z");
+      let dot = document.getElementById("dot");
       let ze = document.getElementById("zero");
       let mo = document.getElementById("mod");
 
       let dis = document.getElementById("dis");
 
       res = "";
+      dot.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (res.length) res += ".";
+        dis.innerHTML = res;
+      });
       mo.addEventListener("click", (e) => {
         e.preventDefault();
         if (res.length) {
@@ -240,8 +247,8 @@
         dis.innerHTML = res;
       });
 
-      function col(){
-        a.style.backgroundColor="red"
+      function col() {
+        a.style.backgroundColor = "red";
       }
     </script>
   </body>
